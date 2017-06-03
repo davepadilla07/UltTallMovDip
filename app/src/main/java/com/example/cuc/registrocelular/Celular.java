@@ -8,33 +8,33 @@ import android.database.sqlite.SQLiteDatabase;
  */
 
 public class Celular {
-    private String codCertificado;
+    private String codcertificado;
     private String foto;
     private String nombre;
     private String marca;
     private String color;
 
     public Celular(String codigoCertificado, String foto, String nombre, String marca, String color) {
-        this.codCertificado = codigoCertificado;
+        this.codcertificado = codigoCertificado;
         this.foto = foto;
         this.nombre = nombre;
         this.marca = marca;
         this.color = color;
     }
 
-    public Celular(String codigoCertificado, String nombre, String marca, String color) {
-        this.codCertificado = codigoCertificado;
+    public Celular(String foto, String nombre, String marca, String color) {
+        this.foto = foto;
         this.nombre = nombre;
         this.marca = marca;
         this.color = color;
     }
 
     public String getCodCertificado() {
-        return codCertificado;
+        return codcertificado;
     }
 
-    public void setCodCertificado(String codigoCertificado) {
-        this.codCertificado = codigoCertificado;
+    public void setCodcertificado(String codigoCertificado) {
+        this.codcertificado = codigoCertificado;
     }
 
     public String getFoto() {
@@ -70,16 +70,14 @@ public class Celular {
     }
 
     public void guardar(Context contexto){
-        //Declarar variables
+
         SQLiteDatabase db;
         String sql;
 
-        //Abrir conexion base de datos en escritura
         CelularesSQLiteOpenHelper aux = new CelularesSQLiteOpenHelper(contexto,"DBCelulares",null);
         db=aux.getWritableDatabase();
 
-        //Insertar forma 1
-        sql="INSERT INTO Personas values('"
+        sql="INSERT INTO Celulares values('"
                 +this.getCodCertificado()+"','"
                 +this.getFoto()+"','"
                 +this.getNombre()+"','"
@@ -87,19 +85,37 @@ public class Celular {
                 +this.getColor()+"')";
 
         db.execSQL(sql);
-
-        //Insertar forma 2
-        /*ContentValues nuevoRegistro = new ContentValues();
-        nuevoRegistro.put("foto",this.getFoto());
-        nuevoRegistro.put("cedula",this.getCedula());
-        nuevoRegistro.put("nombre",this.getNombre());
-        nuevoRegistro.put("apellido",this.getApellido());
-        nuevoRegistro.put("sexo",this.getSexo());
-        nuevoRegistro.put("pasatiempo",this.getPasatiempo());
-
-        db.insert("Personas",null,nuevoRegistro);*/
-
-        //cerrar conexion
         db.close();
     }
+
+    public void eliminar(Context contexto){
+
+        SQLiteDatabase db;
+        String sql;
+
+        CelularesSQLiteOpenHelper aux = new CelularesSQLiteOpenHelper(contexto,"DBCelulares",null);
+        db = aux.getWritableDatabase();
+
+        sql = "DELETE FROM Celulares where cedula='"+this.getCodCertificado()+"'";
+        db.execSQL(sql);
+        db.close();
+
+    }
+
+    public void modificar(Context contexto){
+
+        SQLiteDatabase db;
+        String sql;
+
+        CelularesSQLiteOpenHelper aux = new CelularesSQLiteOpenHelper(contexto,"DBCelulares",null);
+        db = aux.getWritableDatabase();
+
+        sql = "UPDATE Celulares SET nombre='"+this.getNombre()+"', marca='"+this.getMarca()+"', color='"+this.getColor()+"' where codcertificado ='"+this.getCodCertificado()+"'";
+
+        db.execSQL(sql);
+
+        db.close();
+
+    }
+
 }

@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">RegistroCelular</string>
     <string name="action_settings">Settings</string>
+    <string name="registrar">REGISTRAR</string>
+    <string name="cod">Codigo del certificado</string>
+    <string name="nombre">Nombre del celular</string>
+    <string name="marca">Marca del celular</string>
+    <string name="color">Color de celular</string>
+    <string name="guardar">GUARDAR</string>
+    <string name="borrar">BORRAR</string>
 </resources>
