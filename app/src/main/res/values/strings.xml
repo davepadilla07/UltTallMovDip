@@ -8,4 +8,8 @@
     <string name="color">Color de celular</string>
     <string name="guardar">GUARDAR</string>
     <string name="borrar">BORRAR</string>
+    <string name="error1">Digite el codigo de certificacion!</string>
+    <string name="error2">Digite el nombre del celular!</string>
+    <string name="error3">Digite la marca del celular!</string>
+    <string name="error4">Digite el color del ceular!</string>
 </resources>
