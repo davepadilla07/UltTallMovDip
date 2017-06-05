@@ -12,7 +12,7 @@
     <string name="error1_1">Codigo existente!</string>
     <string name="error2">Digite el nombre del celular!</string>
     <string name="error3">Digite la marca del celular!</string>
-    <string name="error4">Digite el color del ceular!</string>
+    <string name="error4">Digite el color del celular!</string>
     <string name="mensaje1">Celular guardado exitosamente!</string>
     <string name="buscar">BUSCAR</string>
 </resources>

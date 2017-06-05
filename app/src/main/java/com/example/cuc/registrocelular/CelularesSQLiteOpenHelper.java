@@ -9,8 +9,8 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 
 public class CelularesSQLiteOpenHelper extends SQLiteOpenHelper {
-    private String sql="CREATE TABLE Celulares(codCertificado text, foto text, nombre text, marca text, color text)";
-    static int version=1;
+    private String sql="CREATE TABLE Celulares(codcertificado text, foto text, nombre text, marca text, color text)";
+    static int version=2;
 
     public CelularesSQLiteOpenHelper(Context contexto, String name, SQLiteDatabase.CursorFactory factory){
         super(contexto,name,factory,version);

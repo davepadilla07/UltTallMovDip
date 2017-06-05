@@ -2,6 +2,8 @@ package com.example.cuc.registrocelular;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +13,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+
+import java.io.ByteArrayOutputStream;
 
 public class AgregarCelular extends AppCompatActivity {
     private EditText cajaCodCertificado;
@@ -31,7 +35,7 @@ public class AgregarCelular extends AppCompatActivity {
         cajaCodCertificado=(EditText)findViewById(R.id.txtCodC);
         cajaNombre=(EditText)findViewById(R.id.txtNombreC);
         cajaMarca=(EditText)findViewById(R.id.txtMarcaC);
-        cajaColor=(EditText)findViewById(R.id.txtCodC);
+        cajaColor=(EditText)findViewById(R.id.txtColorC);
 
         icajaCodCertificado=(TextInputLayout)findViewById(R.id.CodCertificado);
         icajaNombre=(TextInputLayout)findViewById(R.id.NombreCelular);
@@ -93,6 +97,7 @@ public class AgregarCelular extends AppCompatActivity {
             cajaCodCertificado.requestFocus();
             return false;
         }
+
         if (cajaNombre.getText().toString().isEmpty()) {
             icajaNombre.setError(getResources().getString(R.string.error2));
             cajaNombre.requestFocus();
@@ -121,6 +126,11 @@ public class AgregarCelular extends AppCompatActivity {
             marca=cajaMarca.getText().toString();
             color=cajaColor.getText().toString();
             foto=String.valueOf(fotoaleatoria());
+
+            Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(),Integer.parseInt(foto));
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG,100,baos);
+
 
             p=new Celular(foto,codCertificado,nombre,marca,color);
             p.guardar(getApplicationContext());
