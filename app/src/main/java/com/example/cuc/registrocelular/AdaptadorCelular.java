@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 /**
@@ -33,6 +35,13 @@ public class AdaptadorCelular extends RecyclerView.Adapter<AdaptadorCelular.Celu
     @Override
     public void onBindViewHolder(AdaptadorCelular.CelularViewHolder holder, int position) {
         final Celular p = celulares.get(position);
+
+
+        Picasso.with(holder.view.getContext()).load(p.getFoto()).into(holder.foto);
+        holder.codcertificado.setText(p.getCodCertificado());
+        holder.nombre.setText(p.getNombre());
+        holder.marca.setText(p.getMarca());
+        holder.color.setText(p.getColor());
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
