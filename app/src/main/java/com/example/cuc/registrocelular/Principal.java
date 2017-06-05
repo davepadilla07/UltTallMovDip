@@ -42,12 +42,22 @@ public class Principal extends AppCompatActivity implements AdaptadorCelular.OnC
 
     public void agregar(View v){
         finish();
-        //Intent i = new Intent(Principal.this, AgregarCelular.class);
-        //startActivity(i);
+        Intent i = new Intent(Principal.this, AgregarCelular.class);
+        startActivity(i);
     }
 
     @Override
     public void onCelularClick(Celular p) {
+
+        Intent i = new Intent(Principal.this,DetalleCelular.class);
+        Bundle b = new Bundle();
+        b.putString("codcertificado",p.getCodCertificado());
+        b.putString("nombre",p.getNombre());
+        b.putString("marca",p.getMarca());
+        b.putString("color",p.getColor());
+
+        i.putExtra("datos",b);
+        startActivity(i);
 
     }
 }
