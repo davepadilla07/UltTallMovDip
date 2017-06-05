@@ -24,17 +24,33 @@
             android:textAlignment="center"
             android:textSize="30sp" />
 
-        <android.support.design.widget.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/CodCertificado">
+            android:orientation="horizontal">
 
-            <EditText
-                android:layout_width="match_parent"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/CodCertificado"
+                android:layout_width="161dp"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/txtCodC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/cod" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="@string/cod"
-                android:id="@+id/txtCodC" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_weight="0.32"
+                android:onClick="buscarCodCertificado"
+                android:text="@string/buscar"
+                android:textAppearance="@android:style/TextAppearance.Material.Widget.Button.Borderless.Colored" />
+
+        </LinearLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -78,19 +94,21 @@
             android:layout_height="match_parent">
 
             <Button
-                android:text="@string/guardar"
+                android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/button2"
                 android:layout_weight="1"
+                android:onClick="guardar"
+                android:text="@string/guardar"
                 android:textAppearance="@android:style/TextAppearance.Material.Widget.Button.Borderless.Colored" />
 
             <Button
-                android:text="@string/borrar"
+                android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/button"
                 android:layout_weight="1"
+                android:onClick="borrar"
+                android:text="@string/borrar"
                 android:textAppearance="@android:style/TextAppearance.Material.Widget.Button.Borderless.Colored" />
         </LinearLayout>
     </LinearLayout>
